@@ -1,0 +1,13 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nginx.rule=Host(`nginx.helperhub.online`)"
+
+networks:
+  default:
+    name: proxynet
+    external: true

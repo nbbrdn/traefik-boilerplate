@@ -1,0 +1,13 @@
+version: '3'
+services:
+  apache:
+    image: httpd:latest
+    container_name: apache
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.apache.rule=Host(`apache.helperhub.online`)"
+
+networks:
+  default:
+    name: proxynet
+    external: true
